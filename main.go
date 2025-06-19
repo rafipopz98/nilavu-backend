@@ -1,9 +1,18 @@
 package main
 
 import (
-	"fmt"
+	"github.com/nilavu-backend/src/api/routes"
+	"github.com/nilavu-backend/src/initializers"
 )
 
+
+func init(){
+	initializers.LoadEnvVaribles();
+	initializers.InitDB()
+}
+
 func main(){
-	fmt.Println("less go")
+	router := routes.InitRouters();
+	
+	router.Run()
 }
